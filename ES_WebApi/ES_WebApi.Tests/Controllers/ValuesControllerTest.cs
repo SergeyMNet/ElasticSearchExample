@@ -7,6 +7,7 @@ using System.Web.Http;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ES_WebApi;
 using ES_WebApi.Controllers;
+using ESService.Models;
 
 namespace ES_WebApi.Tests.Controllers
 {
@@ -14,19 +15,16 @@ namespace ES_WebApi.Tests.Controllers
     public class ValuesControllerTest
     {
         [TestMethod]
-        public void Get()
+        public void PostSearch()
         {
             // Arrange
             ValuesController controller = new ValuesController();
 
             // Act
-            IEnumerable<string> result = controller.Get();
+            var result = controller.PostSearch(new FilterModel());
 
             // Assert
             Assert.IsNotNull(result);
-            Assert.AreEqual(2, result.Count());
-            Assert.AreEqual("value1", result.ElementAt(0));
-            Assert.AreEqual("value2", result.ElementAt(1));
         }
 
         [TestMethod]

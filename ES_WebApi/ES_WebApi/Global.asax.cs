@@ -7,44 +7,40 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using ESService.Interfaces;
 using ES_WebApi.App_Start;
+using ES_WebApi.Services;
 using Ninject;
 using Ninject.Web.Common;
 
 namespace ES_WebApi
 {
-    // Origin
-    //public class WebApiApplication : System.Web.HttpApplication
-    //{
-    //    protected void Application_Start()
-    //    {
-    //        //httpConfiguration.DependencyResolver = new NinjectResolver(NinjectConfig.CreateKernel());
-
-    //        //GlobalConfiguration.Configuration.ServiceResolver
-    //        //    .SetResolver(DependencyResolver.Current.ToServiceResolver());
-
-    //        AreaRegistration.RegisterAllAreas();
-    //        GlobalConfiguration.Configure(WebApiConfig.Register);
-    //        FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-    //        RouteConfig.RegisterRoutes(RouteTable.Routes);
-    //        BundleConfig.RegisterBundles(BundleTable.Bundles);
-    //    }
-    //}
-
-
     public class WebApiApplication : NinjectHttpApplication
      {
-         protected override IKernel CreateKernel()
-         {
-             var kernel = new StandardKernel();
-             kernel.Load(Assembly.GetExecutingAssembly());
 
-            // TODO add Bind
-            //kernel.Bind<IMessageService>().To<MessageService>();
+        protected override IKernel CreateKernel()
+        {
+            var kernel = new StandardKernel(new NinjectSettings { InjectNonPublic = false, InjectParentPrivateProperties = false, });
+            
+            kernel.Bind<ISearchService>().To<ESearchService>();
 
-             return kernel;
-         }
-         protected override void OnApplicationStarted()
+            GlobalConfiguration.Configuration.DependencyResolver = new App_Start.LocalNinjectDependencyResolver(kernel);
+            
+            return kernel;
+        }
+        
+
+        //protected override IKernel CreateKernel()
+        // {
+        //     var kernel = new StandardKernel();
+        //     kernel.Load(Assembly.GetExecutingAssembly());
+
+        //    // TODO add Bindings
+        //    kernel.Bind<ISearchService>().To<ESearchService>();
+
+        //     return kernel;
+        // }
+        protected override void OnApplicationStarted()
          {
              base.OnApplicationStarted();
 
@@ -54,5 +50,7 @@ namespace ES_WebApi
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
          }
+
+
      }
 }

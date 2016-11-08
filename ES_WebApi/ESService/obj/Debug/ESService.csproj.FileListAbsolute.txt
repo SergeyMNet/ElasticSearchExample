@@ -1,0 +1,15 @@
+C:\Repo_Git\ES_Example\ES_WebApi\ESService\bin\Debug\ESService.dll
+C:\Repo_Git\ES_Example\ES_WebApi\ESService\bin\Debug\ESService.pdb
+C:\Repo_Git\ES_Example\ES_WebApi\ESService\bin\Debug\Elasticsearch.Net.dll
+C:\Repo_Git\ES_Example\ES_WebApi\ESService\bin\Debug\Nest.dll
+C:\Repo_Git\ES_Example\ES_WebApi\ESService\bin\Debug\Newtonsoft.Json.dll
+C:\Repo_Git\ES_Example\ES_WebApi\ESService\bin\Debug\Ninject.dll
+C:\Repo_Git\ES_Example\ES_WebApi\ESService\bin\Debug\Elasticsearch.Net.pdb
+C:\Repo_Git\ES_Example\ES_WebApi\ESService\bin\Debug\Elasticsearch.Net.xml
+C:\Repo_Git\ES_Example\ES_WebApi\ESService\bin\Debug\Nest.pdb
+C:\Repo_Git\ES_Example\ES_WebApi\ESService\bin\Debug\Nest.xml
+C:\Repo_Git\ES_Example\ES_WebApi\ESService\bin\Debug\Newtonsoft.Json.xml
+C:\Repo_Git\ES_Example\ES_WebApi\ESService\bin\Debug\Ninject.xml
+C:\Repo_Git\ES_Example\ES_WebApi\ESService\obj\Debug\ESService.csprojResolveAssemblyReference.cache
+C:\Repo_Git\ES_Example\ES_WebApi\ESService\obj\Debug\ESService.dll
+C:\Repo_Git\ES_Example\ES_WebApi\ESService\obj\Debug\ESService.pdb

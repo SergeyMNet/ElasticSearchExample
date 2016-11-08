@@ -102,6 +102,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ESService\ESService.csproj">
+      <Project>{C56CC96D-8038-4EEA-9F2B-EC0B5A0CBCDD}</Project>
+      <Name>ESService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ES_WebApi\ES_WebApi.csproj">
       <Project>{2EAB1BAD-0050-47FD-B3FB-94775209A8B1}</Project>
       <Name>ES_WebApi</Name>

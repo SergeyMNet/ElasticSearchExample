@@ -4,15 +4,41 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using ESService.Interfaces;
+using ESService.Models;
+using Ninject;
 
 namespace ES_WebApi.Controllers
 {
     public class ValuesController : ApiController
     {
-        // GET api/values
-        public IEnumerable<string> Get()
+        [Inject]
+        public ISearchService SearchService { get; set; }
+
+
+        // POST api/values
+        [Route("search")]
+        public IHttpActionResult PostSearch(FilterModel filter)
         {
-            return new string[] { "value1", "value2" };
+            if (!filter.IsValid)
+            {
+                return BadRequest("Filter is not valid");
+            }
+
+            var result = SearchService.GetSearch(filter);
+
+            if (!result.IsSuccess)
+            {
+                return BadRequest(result.Message);
+            }
+            if (result.IsSuccess && result.Path.Any())
+            {
+                return Ok(result.Path);
+            }
+            else
+            {
+                return NotFound();
+            }
         }
 
         // GET api/values/5
