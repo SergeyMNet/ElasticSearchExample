@@ -11,6 +11,9 @@ using ESService.Models;
 
 namespace ES_WebApi.Tests.Controllers
 {
+    // TODO - Fix all tests
+
+
     [TestClass]
     public class ValuesControllerTest
     {
@@ -47,7 +50,7 @@ namespace ES_WebApi.Tests.Controllers
             ValuesController controller = new ValuesController();
 
             // Act
-            controller.Post("value");
+            controller.PostSubmit(new HttpRequestMessage());
 
             // Assert
         }
